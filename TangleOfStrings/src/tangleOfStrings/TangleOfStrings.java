@@ -76,6 +76,10 @@ public class TangleOfStrings {
 		if (num==6) {
 			findAndReplace(sc);
 		}
+		if (num==7) {
+			System.out.println("\n\n\n\n\n\n Are you sure you would like to quit?");
+			quit(sc);
+		}
 
 	}
 	public static void reverse() {
@@ -120,7 +124,7 @@ public class TangleOfStrings {
 			menu(sc);
 		}
 		if (yesorno==2) {
-			System.out.println("hm. okay. Well that's kind of lame but whatever I guess.");
+			System.out.println("\n\n\n\n\n\n\n\n\n\n ok bye.");
 		}
 	}
 	public static void line () {
@@ -143,10 +147,25 @@ public class TangleOfStrings {
 		replace=sc.next();
 		System.out.println(bean.replace(find,replace));
 		}
+	public static void quit(Scanner sc) {
+		System.out.println("1-Yes  2-No");
+		String are ="Are you";
+		String sure ="sure you would like to quit?";
+		int yesorno=sc.nextInt();
+		if(yesorno==1) {
+			System.out.print(are);
+			for(int i=0; i<5; i++) {
+			System.out.print("really ");
+			}
+		System.out.println(sure);
+		quit(sc);
+		}
+		if(yesorno==2) {
+			menu(sc);
+		}
 	}
-
-//String myString2= "Dog";
-//String myString3= "dog";
-//System.out.println(myString);
-//System.out.println(myString.charAt(7));
-//System.out.println(myString.substring(4,12));
+	}
+//System.out.println(myString.toUpperCase());
+//System.out.println(myString.toLowerCase());
+//phraseEven(myString2);
+//phraseEven(myString);
