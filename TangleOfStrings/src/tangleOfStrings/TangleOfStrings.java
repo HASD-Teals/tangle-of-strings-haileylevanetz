@@ -41,7 +41,7 @@ public class TangleOfStrings {
 	public static void menu(Scanner sc) {
 		System.out.println("1: Print my string backward ");
 		System.out.println("2: Make a list of words in my string with a given length ");
-		System.out.println("3:Print out number of vowels in my string");
+		System.out.println("3: Print out number of vowels in my string");
 		System.out.println("4: Inverse the character case of my string");
 		System.out.println("5: Compare to a second string for content equality");
 		System.out.println("6: Replace a word in my string with a new word");
@@ -68,16 +68,21 @@ public class TangleOfStrings {
 			again(sc);
 		}
 		if (num==4) {
-			cap();
+			cap(sc);
+			line();
+			again(sc);
 		}
 		if(num==5) {
-			match();
+			match(sc);
+			line();
+			again(sc);
 		}
 		if (num==6) {
 			findAndReplace(sc);
 		}
 		if (num==7) {
-			System.out.println("\n\n\n\n\n\n Are you sure you would like to quit?");
+			line();
+			System.out.println("\n\n\n\n\n Are you sure you would like to quit?");
 			quit(sc);
 		}
 
@@ -130,10 +135,46 @@ public class TangleOfStrings {
 	public static void line () {
 		System.out.println("_________________________________________________________________________________________________\n");
 	}
-	public static void cap () {
-
+	public static void cap (Scanner sc) {
+		System.out.println("How would you like to print your string?");
+		System.out.println("1-All UpperCase  2-All Lower Case  3-Nevermind");
+		System.out.println("Select a number:");
+		int answer;
+		answer=sc.nextInt();
+		if(answer==1){
+			System.out.println(bean.toUpperCase());
+		}
+		if(answer==2) {
+			System.out.println(bean.toLowerCase());
+		}
+		if(answer==3) {
+			quit(sc);
+		}
 	}
-	public static void match () {
+	public static void match (Scanner sc) {
+		System.out.println("Type a string to compare the other string to:");
+		String equal;
+		equal=sc.next() +" ";
+		System.out.println("Do you want this comparison to be capps sensitive?");
+		System.out.println("1-Yes  2-No");
+		int jes; jes=sc.nextInt();
+		if(jes==1) {
+			if(equal.equals(bean)) {
+				System.out.println("The content of this string is equal to the original");
+			}
+			else {
+				System.out.println("This string is not equal to the original");
+			}
+		}
+		if (jes==2) {
+			if(equal.equalsIgnoreCase(bean)) {
+				System.out.println("This string is equal to the original");
+			}
+			else {
+				System.out.println("This string is not equal to the original");
+			}
+		}
+
 
 	}
 	public static void findAndReplace(Scanner sc) {
@@ -146,26 +187,18 @@ public class TangleOfStrings {
 		String replace;
 		replace=sc.next();
 		System.out.println(bean.replace(find,replace));
-		}
+	}
 	public static void quit(Scanner sc) {
 		System.out.println("1-Yes  2-No");
-		String are ="Are you";
-		String sure ="sure you would like to quit?";
-		int yesorno=sc.nextInt();
-		if(yesorno==1) {
-			System.out.print(are);
-			for(int i=0; i<5; i++) {
-			System.out.print("really ");
+		int yesorno; yesorno=sc.nextInt();
+			if(yesorno==1) {
+				System.out.println("\n\n\n\n\n\n\n\n All done :)");
+				
 			}
-		System.out.println(sure);
-		quit(sc);
-		}
-		if(yesorno==2) {
-			menu(sc);
+			if(yesorno==2) {
+				menu(sc);
+			}
 		}
 	}
-	}
-//System.out.println(myString.toUpperCase());
-//System.out.println(myString.toLowerCase());
-//phraseEven(myString2);
-//phraseEven(myString);
+
+
